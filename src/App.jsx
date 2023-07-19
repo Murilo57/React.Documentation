@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import './App.css';
 
 const user = {
@@ -12,6 +13,7 @@ const tags = [
   { title: 'Contact', isFruit: false, id: 2},
   { title: 'Social midia', isFruit: false, id: 3},
 ]
+
 
 const listItems = tags.map( tags =>
   <li key={tags.id} 
@@ -40,12 +42,6 @@ function Profile() {
   )
 }
 
-function MyButton() {
-  return (
-    <button>I'm a button</button>
-  )
-}
-
 function AboutPage() {
   return (
     <>
@@ -55,15 +51,28 @@ function AboutPage() {
   )
 }
 
-export default function MyApp(){
+function MyButton() {
+  const [count, setCount] = useState(0)
+  function handleClick() {
+    setCount(count + 1)
+  }
+  return (
+    <button onClick={handleClick}> Clicked {count} times</button>
+  )
+}
+
+export default function MyApp(){  
   return (   
   <div>
-      <ul>{listItems}</ul>
+    <ul>{listItems}</ul>
     <AboutPage/> 
     <Profile/>
     <h1> Welcome to my app </h1>
-    <MyButton/>
+    <h2>Counters that update separately</h2>    
+    <MyButton />
+    <MyButton />
   </div>
   )
 }
+
 
