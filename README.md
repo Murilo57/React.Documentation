@@ -9,3 +9,6 @@ Example:
 
 CSS: className="name"
 JavaScript: {user.name}
+
+
+In JSX can be used ? in place of if and && if not used else
