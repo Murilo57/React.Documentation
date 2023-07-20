@@ -14,11 +14,10 @@ const tags = [
   { title: 'Social midia', isFruit: false, id: 3},
 ]
 
-
 const listItems = tags.map( tags =>
   <li key={tags.id} 
   style={{
-    color: tags.isFruit ? 'magenta' : 'purple'
+    color: tags.isFruit ? 'magenta' : 'White'
   }}
   >    
     {tags.title}
@@ -51,13 +50,9 @@ function AboutPage() {
   )
 }
 
-function MyButton() {
-  const [count, setCount] = useState(0)
-  function handleClick() {
-    setCount(count + 1)
-  }
+function MyButton({count, onClick}) {
   return (
-    <button onClick={handleClick}> Clicked {count} times</button>
+    <button onClick={onClick}> Clicked {count} times</button>
   )
 }
 
@@ -69,7 +64,6 @@ export default function MyApp(){
     <Profile/>
     <h1> Welcome to my app </h1>
     <h2>Counters that update separately</h2>    
-    <MyButton />
     <MyButton />
   </div>
   )
